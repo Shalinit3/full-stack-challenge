@@ -1,59 +1,137 @@
-# Wise Publishing Challenge 👨‍💻
+# 🦉 WiseJobs — Fullstack Job Board Application
 
-This challenge is meant to measure your capabilities as a **full stack developer** and assess your approach to solving problems. We value clean code, and good user experience.
+WiseJobs is a fullstack job board web app built with **Laravel (API/backend)** and a modern **React + Inertia.js frontend** using **TailwindCSS**, **Radix UI**, **Vite**, and **TypeScript**. It includes authentication, company and job listing management, a reusable UI component system, and developer-friendly testing and linting setup.
 
-We appreciate adherence to **SOLID**, **KISS**, and **DRY** principles and encourage a focus on performance, **Core Web Vitals (CWV)**, and UI/UX skills.
+---
 
-We expect that an MVP (Minimum Viable Product) of this challenge will take roughly 3-4 hours. However, you will have 2 business days to complete the task.
+## 🎥 Demo
 
-## Project Name: **WiseJobs** 🦉
+Watch the demo video here: **[Demo Video Link](https://jam.dev/c/8473c7a0-dee5-40d5-bf62-64afe820a931)**  
 
-### Requirements ⚙️
+---
 
-This project will use **Laravel** (as a backend framework) and **Alpine.js**, **JS with Typescript**, **HTML**, **CSS**, and **Blade templating** for the frontend.
+## 🚀 Tech Stack
 
-Optionally, you can utilize Inertia JS with React or Vue.
+- **Laravel** (backend API)
+- **Inertia.js + React 19** (frontend SPA framework)
+- **TailwindCSS v4 + Tailwind Plugins**
+- **Radix UI & Lucide Icons**
+- **Vite** for lightning-fast builds and HMR
+- **TypeScript** for type safety
+- **Jest + Testing Library** for unit testing
+- **ESLint + Prettier** with plugins for Tailwind & import sorting
 
-You are tasked with creating a responsive, performant, and user-friendly job board application called WiseJobs.
+---
 
-### Users 👥
+## 📦 Getting Started
 
-**Users should be able to:**
-- Scroll through the list of the latest published jobs.
-- Filter jobs based on: position type (remote or in-person), salary, company, and location.
-- View more details for each individual job.
-- **Performance Consideration:** Ensure smooth scrolling, fast page loading, and efficient job filtering.
-- **UI/UX Consideration:** The list should be easy to navigate, with clear, user-friendly job cards, and filters should be intuitive and accessible.
+### 1. Clone & Setup Laravel Backend
 
-### Admin users 🗣️
-**Admins should be able to:**
-* Create companies.
-* View all companies and the number of postings for each company.
-* View a single company.
-* Update a company.
-* Delete a company and all of its postings.
-* Create job postings for a selected company.
-* View a single job posting.
-* Update a job posting.  
-* Delete a job posting.
-  
-### Frontend Expectations 🤘
+```bash
+git clone https://github.com/your-username/wisejobs.git
+cd wisejobs
+cp .env.example .env
+composer install
+php artisan key:generate
+php artisan migrate
+```
 
-1. **UI/UX:**
-   - **Responsive Design:** Ensure the application is fully responsive across all devices (mobile, tablet, desktop).
-   - **User-friendly Filters:** Implement an intuitive filtering UI with clear feedback when users apply filters.
-   - **Microinteractions:** Add subtle animations or transitions to improve the user experience without impacting performance.
-   - **Accessibility:** Ensure the site is accessible for all users (e.g., keyboard navigation, screen reader support).
+> Ensure your `.env` is properly configured with database credentials.
 
-2. **Frontend Architecture:**
-   - **Reusable Components:** Build reusable components for job cards, filter options, and forms using Blade and Alpine.js.
-   - **Separation of Concerns:** Ensure a clean separation between data fetching and UI rendering for scalability.
-   - **CSS Architecture:** Use a CSS methodology such as BEM or utility-first CSS for maintainable and scalable styles.
+---
 
-3. **Extras (Optional but appreciated):**
-   - **Dark Mode Toggle**: Provide a dark mode toggle for the job board.
-   - **Hosting**: Deploy the application for extra points.
+### 2. Install Frontend Dependencies
 
-### Submission 📬
+```bash
+npm install
+npm run build  # or: npm run dev
+```
 
-Please make sure to fork this repository and commit your code. We would like to see your commit history with clear, frequent commit messages. When you are completed with the challenge, feel free to share the repository link with us, along with a readme for getting started with the project. Ensure at least one commit is pushed at the 2-hour mark.
+---
+
+### 3. Run the Development Server
+
+```bash
+# In one terminal
+php artisan serve
+
+# In another terminal
+npm run dev
+```
+
+Visit: [http://localhost:8000](http://localhost:8000)
+
+---
+
+## 🧪 Testing
+
+This project uses **Jest** and **React Testing Library** for frontend unit tests.
+
+```bash
+npm run test
+```
+
+---
+
+## 🛠️ Available Scripts
+
+| Command              | Description                                 |
+|----------------------|---------------------------------------------|
+| `npm run dev`        | Start the Vite development server           |
+| `npm run build`      | Build frontend for production               |
+| `npm run test`       | Run Jest test suite                         |
+| `npm run lint`       | Lint and auto-fix code                      |
+| `npm run format`     | Format files using Prettier                 |
+| `npm run format:check` | Check formatting without changing files  |
+| `npm run types`      | Run TypeScript type checks                  |
+
+---
+
+## 📁 Folder Structure
+
+```
+resources/
+├── js/
+│   ├── components/      # Reusable UI components (Form, Table, etc.)
+│   ├── pages/           # Inertia pages (companies, jobs, settings)
+│   ├── layouts/         # AppLayout and shared layout elements
+│   └── types/           # TypeScript interfaces
+└── css/                 # Tailwind styles and plugins
+```
+
+---
+
+## 🧩 Features
+
+- ✅ Company & Job Listings CRUD
+- ✅ Reusable Table and Form components
+- ✅ Tailwind theme classes (e.g., `bg-card`, `text-muted`)
+- ✅ Strong typing with TypeScript
+- ✅ ESLint + Prettier for consistent code
+- ✅ Unit-tested components (Jest + Testing Library)
+- 🔄 Vite-powered fast development
+
+---
+
+## ✅ To-Do
+
+- [ ] Add login with permissions for different types of users
+- [ ] Add filters, search, and pagination to job list
+- [ ] Add company logos / avatars
+- [ ] Setup CI/CD pipeline with GitHub Actions
+
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+## 🙌 Acknowledgements
+
+- [Laravel](https://laravel.com/)
+- [React](https://reactjs.org/)
+- [Inertia.js](https://inertiajs.com/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Radix UI](https://www.radix-ui.com/)
