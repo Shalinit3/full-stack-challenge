@@ -45,8 +45,10 @@ class CompanyController extends Controller
 
     public function details(Companies $company)
     {
+        $company->load('jobListings');
         return Inertia::render('companies/details', [
             'company' => $company,
+            'jobListings' => $company->jobListings,
         ]);
     }
 

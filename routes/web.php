@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\JobListingsController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -19,6 +20,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/companies/{company}/edit', [CompanyController::class, 'edit'])->name('companies.edit');
     Route::put('/companies/{company}', [CompanyController::class, 'update'])->name('companies.update');
     Route::get('/companies/{company}', [CompanyController::class, 'details'])->name('companies.details');
+
+    // Job Listings Routes
+    Route::get('/companies/{company}/jobs/create', [JobListingsController::class, 'create'])->name('jobs.create');
+    Route::post('/companies/{company}/jobs', [JobListingsController::class, 'store'])->name('jobs.store');
+    Route::delete('/jobs/{job}', [JobListingsController::class, 'destroy'])->name('jobs.destroy');
 });
 
 require __DIR__.'/settings.php';

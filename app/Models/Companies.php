@@ -13,4 +13,10 @@ class Companies extends Model
         'address',
         'description',
     ];
+    
+    public function jobListings()
+    {
+        return $this->hasMany(JobListings::class, 'company_id');
+    }
+    
 }
