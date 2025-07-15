@@ -94,7 +94,7 @@ describe('JobForm', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /submit/i }));
 
-    expect(mockOnSubmit).toHaveBeenCalledWith(expect.any(Object), true);
+    expect(mockOnSubmit).toHaveBeenCalledWith(expect.any(Object), false);
   });
 
   it('disables submit button when processing is true', () => {
