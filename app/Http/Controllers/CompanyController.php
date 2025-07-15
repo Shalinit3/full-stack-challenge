@@ -9,7 +9,8 @@ use Inertia\Inertia;
 class CompanyController extends Controller
 {
     public function index() {
-        return Inertia::render('companies/index');
+        $companies = Companies::all();
+        return Inertia::render('companies/index', compact('companies'));
     }
     public function create() {
         return Inertia::render('companies/create');
