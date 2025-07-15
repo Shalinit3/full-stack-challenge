@@ -28,6 +28,6 @@ class CompanyController extends Controller
             'description' => 'nullable|string|max:1000',
         ]);
         Companies::create($request->all());
-        return redirect()->route('companies.index');
+        return redirect()->route('companies.index')->with('message', 'Company created successfully.');
     }
 }

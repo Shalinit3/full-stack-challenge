@@ -2,6 +2,7 @@ import Table from '@/components/ui/table';
 import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
+import { useEffect, useMemo } from 'react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -11,6 +12,9 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 interface PageProps {
+    flash: {
+        message?: string;
+    };
     companies: Array<{
         id: number;
         name: string;
@@ -23,7 +27,16 @@ interface PageProps {
 }
 
 export default function Companies() {
-    const { companies } = usePage().props as Partial<PageProps>;
+    const { flash, companies } = usePage().props as Partial<PageProps>;
+    const message = useMemo(() => flash?.message ?? '', [flash]);
+    
+    useEffect(() => {
+        if (message.length) {
+            // Display the flash message, e.g., using a toast or alert
+            alert(message);
+        }
+    }, [message]);
+
     return (
         <AppLayout
             breadcrumbs={breadcrumbs}
