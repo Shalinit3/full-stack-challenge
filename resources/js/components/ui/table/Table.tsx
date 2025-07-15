@@ -30,8 +30,8 @@ export default function Table<T extends Record<string, any>>({
 }: TableProps<T>) {
   return (
     <div className="overflow-x-auto w-full">
-      <table className={`w-full border-collapse text-sm bg-white ${className}`}>
-        <thead className="bg-gray-100 text-left">
+      <table className={`w-full border-collapse text-sm ${className}`}>
+        <thead className="text-left">
           <tr>
             {columns.map((col) => (
               <th key={String(col.key)} className="px-4 py-2 border-b font-medium">
@@ -39,7 +39,7 @@ export default function Table<T extends Record<string, any>>({
               </th>
             ))}
             {actions.length > 0 && (
-              <th className="px-4 py-3 border-b border-gray-200 font-semibold text-gray-700 text-center">
+              <th className="px-4 py-3 border-b border-gray-200 font-semibold text-center">
                 Actions
               </th>
             )}
@@ -48,14 +48,14 @@ export default function Table<T extends Record<string, any>>({
         <tbody>
           {data.length === 0 ? (
             <tr>
-              <td colSpan={columns.length} className="px-4 py-4 text-center text-gray-500">
+              <td colSpan={columns.length} className="px-4 py-4 text-center">
                 No data available.
               </td>
             </tr>
           ) : (
             data.map((row, rowIndex) => (
               <tr key={rowIndex} onClick={() => onRowClick?.(row)} className={`
-                  even:bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer
+                 even:opacity-80 hover:opacity-75 transition-colors cursor-pointer
                   ${onRowClick ? 'hover:cursor-pointer' : ''}
                 `}>
                 {columns.map((col) => (

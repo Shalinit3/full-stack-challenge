@@ -67,7 +67,7 @@ export default function Companies() {
                 title: 'Create Company',
             }}
         >
-            <Head title="Companies" />
+            <Head title="WiseJobs - Companies" />
                 <div className="mx-auto flex h-full w-full max-w-4xl flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
                 <Table
                     columns={[
