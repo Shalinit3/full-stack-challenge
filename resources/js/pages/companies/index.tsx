@@ -33,9 +33,9 @@ export default function Companies() {
     const message = useMemo(() => flash?.message ?? '', [flash]);
 
     const handleEdit = useCallback(
-        () => {
-            if (processing) return;
-           // TODO: Implement the edit functionality
+        (row: { id: number }) => {
+           if (processing) return;
+            window.location.href = route('companies.edit', row.id);
         },
         [processing],
     );
