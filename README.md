@@ -7,6 +7,7 @@ WiseJobs is a fullstack job board web app built with **Laravel (API/backend)** a
 ## 🎥 Demo
 
 Watch the demo video here: **[Demo Video Link](https://jam.dev/c/8473c7a0-dee5-40d5-bf62-64afe820a931)**  
+Check the 2 hour mark code here **[2 hr mark tag](https://github.com/Shalinit3/full-stack-challenge/releases/tag/2hr-mark)**
 
 ---
 
