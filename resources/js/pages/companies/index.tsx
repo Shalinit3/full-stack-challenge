@@ -14,6 +14,10 @@ export default function Companies() {
     return (
         <AppLayout
             breadcrumbs={breadcrumbs}
+            headerButton={{
+                href: route('companies.create'),
+                title: 'Create Company',
+            }}
         >
             <Head title="Companies" />
             <PlaceholderPage />
