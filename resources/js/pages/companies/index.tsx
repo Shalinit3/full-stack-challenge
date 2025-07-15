@@ -47,6 +47,10 @@ export default function Companies() {
         },
         [processing, deleteCompany],
     );
+
+    const handleCompanyClick = useCallback((row: { id: number }) => {
+        window.location.href = route('companies.details', row.id);
+    }, []);
     
     useEffect(() => {
         if (message.length) {
@@ -84,6 +88,7 @@ export default function Companies() {
                         },
                     ]}
                     data={companies ?? []}
+                    onRowClick={handleCompanyClick}
                 />
             </div>
         </AppLayout>

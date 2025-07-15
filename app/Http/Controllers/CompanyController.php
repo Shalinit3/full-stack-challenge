@@ -43,6 +43,13 @@ class CompanyController extends Controller
         return redirect()->route('companies.index')->with('message', 'Company updated successfully.');
     }
 
+    public function details(Companies $company)
+    {
+        return Inertia::render('companies/details', [
+            'company' => $company,
+        ]);
+    }
+
     public function destroy(Companies $company) {
         $company->delete();
         return redirect()->route('companies.index')->with('message', 'Company deleted successfully.');
