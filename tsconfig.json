@@ -112,7 +112,8 @@
             "@/*": ["./resources/js/*"],
             "ziggy-js": ["./vendor/tightenco/ziggy"]
         },
-        "jsx": "react-jsx"
+        "jsx": "react-jsx",
+        "types": ["jest", "@testing-library/jest-dom"]
     },
     "include": [
         "resources/js/**/*.ts",
