@@ -1,8 +1,9 @@
 import Table from '@/components/ui/table';
 import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
-import { Head, usePage } from '@inertiajs/react';
-import { useEffect, useMemo } from 'react';
+import { Head, useForm, usePage } from '@inertiajs/react';
+import { PenIcon as EditIcon, TrashIcon } from 'lucide-react';
+import { useCallback, useEffect, useMemo } from 'react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -27,8 +28,25 @@ interface PageProps {
 }
 
 export default function Companies() {
+    const { delete: deleteCompany, processing } = useForm();
     const { flash, companies } = usePage().props as Partial<PageProps>;
     const message = useMemo(() => flash?.message ?? '', [flash]);
+
+    const handleEdit = useCallback(
+        () => {
+            if (processing) return;
+           // TODO: Implement the edit functionality
+        },
+        [processing],
+    );
+
+    const handleDelete = useCallback(
+        (row: { id: number }) => {
+            if (processing || !confirm('Are you sure you want to delete this company?')) return;
+            deleteCompany(route('companies.destroy', row.id));
+        },
+        [processing, deleteCompany],
+    );
     
     useEffect(() => {
         if (message.length) {
@@ -54,6 +72,16 @@ export default function Companies() {
                         { header: 'Phone', key: 'phone' },
                         { header: 'Address', key: 'address' },
                         { header: 'Description', key: 'description' },
+                    ]}
+                    actions={[
+                        {
+                            icon: <EditIcon />,
+                            onClick: handleEdit,
+                        },
+                        {
+                            icon: <TrashIcon />,
+                            onClick: handleDelete,
+                        },
                     ]}
                     data={companies ?? []}
                 />

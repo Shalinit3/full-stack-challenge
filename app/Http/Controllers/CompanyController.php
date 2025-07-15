@@ -30,4 +30,9 @@ class CompanyController extends Controller
         Companies::create($request->all());
         return redirect()->route('companies.index')->with('message', 'Company created successfully.');
     }
+    
+    public function destroy(Companies $company) {
+        $company->delete();
+        return redirect()->route('companies.index')->with('message', 'Company deleted successfully.');
+    }
 }
