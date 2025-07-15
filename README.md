@@ -49,17 +49,21 @@ npm run build  # or: npm run dev
 
 ---
 
-### 3. Run the Development Server
+### 3. Run the Development Environment
+
+You can use a single command to run everything at once:
 
 ```bash
-# In one terminal
-php artisan serve
-
-# In another terminal
-npm run dev
+composer run dev
 ```
 
-Visit: [http://localhost:8000](http://localhost:8000)
+This starts:
+- Laravel backend (`php artisan serve`)
+- Laravel queue listener
+- Pail log viewer
+- Vite frontend server (`npm run dev`)
+
+> Requires `npx` and `concurrently` (already included in the project)
 
 ---
 
@@ -77,7 +81,8 @@ npm run test
 
 | Command              | Description                                 |
 |----------------------|---------------------------------------------|
-| `npm run dev`        | Start the Vite development server           |
+| `composer run dev`   | Run backend + queue + logs + Vite frontend  |
+| `npm run dev`        | Run only the Vite frontend server           |
 | `npm run build`      | Build frontend for production               |
 | `npm run test`       | Run Jest test suite                         |
 | `npm run lint`       | Lint and auto-fix code                      |

@@ -34,7 +34,7 @@ export default function EditCompany({ company }: { company: CompanyType }) {
         <AppLayout
             breadcrumbs={breadcrumbs}
         >
-            <Head title="Edit Company" />
+            <Head title="WiseJobs - Edit Company" />
             <div className="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
                 <CompanyForm data={data} setData={setData} onSubmit={handleSubmit} processing={processing} errors={errors} />
             </div>

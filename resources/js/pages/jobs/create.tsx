@@ -34,7 +34,7 @@ export default function CreateJob({ companyId, companyName }: CreateJobProps) {
             href: '', 
         },
     ]}>
-            <Head title="Create New Job" />
+            <Head title="WiseJobs - Create New Job" />
             <div className="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
                 <JobForm
                     data={data}
